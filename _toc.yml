@@ -1,0 +1,11 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: welcome
+chapters:
+- file: week1
+  sections:
+    - file: intro
+    - file: tsibbles
+    - file: plots
