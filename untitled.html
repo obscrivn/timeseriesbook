@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction to Tsibbles &#8212; D-590 Time Series Analysis</title>
+    <title>Autocorrelation Practice &#8212; D-590 Time Series Analysis</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -89,8 +89,6 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Graphics" href="plots.html" />
-    <link rel="prev" title="Basic Concepts" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -134,24 +132,24 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="week1.html">
    Introduction
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="intro.html">
      Basic Concepts
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="tsibbles.html">
      Introduction to Tsibbles
     </a>
    </li>
@@ -161,11 +159,6 @@
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="week2.html">
-   Autocorrelation
-  </a>
  </li>
 </ul>
 
@@ -208,7 +201,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/tsibbles.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/untitled.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -228,7 +221,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftsibbles.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Funtitled.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -260,8 +253,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tsibble-objects">
-   Tsibble Objects
+  <a class="reference internal nav-link" href="#ts-objects">
+   TS Objects
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -285,36 +278,52 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-tsibbles">
-<h1>Introduction to Tsibbles<a class="headerlink" href="#introduction-to-tsibbles" title="Permalink to this headline">¶</a></h1>
-<p><small> Source: Tidy Time Series. Rob Hyndman. Rstudio 2020 </small></p>
+  <div class="section" id="autocorrelation-practice">
+<h1>Autocorrelation Practice<a class="headerlink" href="#autocorrelation-practice" title="Permalink to this headline">¶</a></h1>
+<p><small> Source: Tidy Time Series. Rob Hyndman. Rstudio 2020 </small>
+<small> Source: Introductory Time Series in R. Cowpertwait et al. </small></p>
 <div class="section" id="about">
 <h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>The tsibble package extends the tidyverse to temporal data. Built on top of the tibble, a tsibble (or tbl_ts) is a data- and model-oriented object. The tsibble package aims at managing temporal data and getting analysis done in a fluent workflow.</p>
+<div><p>In this practice you will learn about lag and ACF plots.</p>
 </div></blockquote>
-<p>This practice is available on Canvas in RMD format. Make sure you are able to run it and understand the structure of Rmarkdown. For all subsequent practice activities you need to creaate a new rmarkdown file, add content from the practice and knit (run).</p>
-<p><strong>Tsibble Content</strong></p>
+<p><strong>Data Needed</strong></p>
+<p>Download from Canvas</p>
 <ul class="simple">
-<li><p>library(tidyverse) # Data manipulation and plotting functions</p></li>
-<li><p>library(tsibble) # Time series manipulation</p></li>
-<li><p>library(fable) # Forecasting functions</p></li>
-<li><p>library(feasts) # Time series graphics and statistics</p></li>
-<li><p>library(tsibbledata) # Tidy time series data</p></li>
-<li><p>library(fpp3) # All of the above and more</p></li>
+<li><p>wave</p></li>
 </ul>
-<p> Install required packages: </p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="n">c</span><span class="p">(</span>
-<span class="s2">&quot;tidyverse&quot;</span><span class="p">,</span>
-<span class="s2">&quot;fpp3&quot;</span><span class="p">,</span>
-<span class="s2">&quot;GGally&quot;</span><span class="p">,</span>
-<span class="s2">&quot;sugrrants&quot;</span>
-<span class="p">))</span>
+</div>
+<div class="section" id="ts-objects">
+<h2>TS Objects<a class="headerlink" href="#ts-objects" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>The function <code class="docutils literal notranslate"><span class="pre">ts</span></code> is built-in and is used to create time-series objects.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1959</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># start from 2nd Quarter of 1959</span>
 </pre></div>
 </div>
+<p><img alt="" src="_static/Part1-ts.png" /></p>
+<ol class="simple">
+<li><p>Upload wave.dat data and create plot. You can also slice time series. waveht is the column name. Data height (mm relative to still water level) is measured at the centre of a wave tank.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wave</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;data/wave.dat&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">(</span><span class="n">waveht</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">(</span><span class="n">waveht</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">60</span><span class="p">]))</span>
+</pre></div>
 </div>
-<div class="section" id="tsibble-objects">
-<h2>Tsibble Objects<a class="headerlink" href="#tsibble-objects" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/Part1-1.png" /></p>
+<p><img alt="" src="_images/Part1-2.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The upper plot shows the entire time series. There are no outlying values. The lower plot is of the first sixty wave heights. We can see that there is a tendency for consecutive values to be relatively similar and that the form is like a rough sea, with a quasi-periodicity but no fixed frequency.</p>
+</div>
+<ol class="simple">
+<li><p>The function <code class="docutils literal notranslate"><span class="pre">acf</span></code> computes (and by default plots) estimates of the autocovariance or autocorrelation function.</p></li>
+</ol>
+<p>The autocorrelations of x are stored in the vector $<span class="math notranslate nohighlight">\(acf(x)\$acf\)</span><span class="math notranslate nohighlight">\(, with the lag k autocorrelation located in \)</span><span class="math notranslate nohighlight">\(acf(x)\$acf[k+1]\)</span>$. For example, the lag 1 autocorrelation for waveht is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>acf(waveht)$acf[2]  # 0.47
+
+</pre></div>
+</div>
 <p>Object contains:</p>
 <ul class="simple">
 <li><p>An index: time information about the observation</p></li>
@@ -466,21 +475,7 @@ year</strong>, use <code class="docutils literal notranslate"><span class="pre">
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Basic Concepts</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="plots.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Graphics</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
         
         </div>
