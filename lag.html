@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; D-590 Time Series Analysis</title>
+    <title>Lagged Value and Autocorrelation &#8212; D-590 Time Series Analysis</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -73,52 +73,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic Concepts" href="intro.html" />
-    <link rel="prev" title="Welcome to D-590 Time Series Spring 22" href="welcome.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -162,12 +118,12 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="week1.html">
    Introduction
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
@@ -253,7 +209,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/week1.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/lag.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -273,7 +229,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fweek1.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flag.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -294,29 +250,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-concepts">
-   Basic Concepts
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-tsibbles">
-   Introduction to Tsibbles
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#graphics">
-   Graphics
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -325,28 +258,45 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="basic-concepts">
-<h2>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="lagged-value-and-autocorrelation">
+<h1>Lagged Value and Autocorrelation<a class="headerlink" href="#lagged-value-and-autocorrelation" title="Permalink to this headline">¶</a></h1>
+<p><strong>Lagged Plots</strong></p>
+<p>A lag plot is a special type of scatter plot in which the Y-axis represent time units (Y) and the X-axis represents time units behind (Y - lag) or ahead (Y + lag). The difference between these time units is called <code class="docutils literal notranslate"><span class="pre">lag</span></code> or <code class="docutils literal notranslate"><span class="pre">lagged</span></code> and it is represented by k.</p>
+<p>The lag plot is used to answer the following questions:</p>
+<ol>
+<li><p>Distribution of Model (Model Suitability)</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="intro.html"><span class="doc std std-doc">Basic Concepts</span></a></p></li>
+<li><p>Distribution of model here means deciding what is the shape of data on the basis of the lag plot:</p>
+<ul>
+<li><p>If the lag plot is linear, then the underlying structure is of the autoregressive model</p></li>
+<li><p>If the lag plot is of elliptical shape, then the underlying structure represents a continuous periodic function such as sine, cosine, etc.</p></li>
 </ul>
-</div>
-<div class="section" id="introduction-to-tsibbles">
-<h2>Introduction to Tsibbles<a class="headerlink" href="#introduction-to-tsibbles" title="Permalink to this headline">¶</a></h2>
+</li>
+</ul>
+</li>
+<li><p>Outliers</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="tsibbles.html"><span class="doc std std-doc">Tsibbles</span></a></p></li>
+<li><p>Outliers are a set of data points that represent the extreme values in the distribution</p></li>
 </ul>
-</div>
-<div class="section" id="graphics">
-<h2>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h2>
+</li>
+<li><p>Randomness in data</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="plots.html"><span class="doc std std-doc">Graphics</span></a></p></li>
+<li><p>The lag plot is also useful for checking whether the given dataset is random or not.</p></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-</div>
+</li>
+<li><p>Seasonality</p>
+<ul class="simple">
+<li><p>If there is seasonality in the plot then, it will give a periodic lag plot.</p></li>
+</ul>
+</li>
+<li><p>Autocorrelation</p>
+<ul class="simple">
+<li><p>If the lag plot gives a linear plot, then it means the autocorrelation is present in the data</p></li>
+<li><p>If more data is concentrated on the diagonal in lag plot, it means there is a strong autocorrelation</p></li>
+</ul>
+<p><a class="reference external" href="https://www.geeksforgeeks.org/lag-plots/">https://www.geeksforgeeks.org/lag-plots/</a></p>
+</li>
+</ol>
 </div>
 
     <script type="text/x-thebe-config">
@@ -373,21 +323,7 @@
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="welcome.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to D-590 Time Series Spring 22</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="intro.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Basic Concepts</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
         
         </div>

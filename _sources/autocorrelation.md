@@ -20,6 +20,7 @@ Upload [wave.dat](_static/wave.dat) data and create plot. You can also slice tim
 ```
 # Code block 2:
 wave <- read.table('wave.dat',header=T)
+waveht = ts(wave)
 plot(ts(waveht))
 plot(ts(waveht[1:60]))
 ```

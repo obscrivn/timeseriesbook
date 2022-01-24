@@ -54,7 +54,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Autocorrelation" href="week2.html" />
+    <link rel="next" title="Smoothing" href="smoothing.html" />
+    <link rel="prev" title="Decomposition" href="week2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -126,10 +127,27 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="week2.html">
-   Autocorrelation
+   Decomposition
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Autocorrelation Practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="smoothing.html">
+     Smoothing
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -267,6 +285,7 @@
 Upload <span class="xref myst">wave.dat</span> data and create plot. You can also slice time series. waveht is the column name. Data height (mm relative to still water level) is measured at the centre of a wave tank.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code block 2:</span>
 <span class="n">wave</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;wave.dat&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
+<span class="n">waveht</span> <span class="o">=</span> <span class="n">ts</span><span class="p">(</span><span class="n">wave</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">(</span><span class="n">waveht</span><span class="p">))</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">(</span><span class="n">waveht</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">60</span><span class="p">]))</span>
 </pre></div>
@@ -379,8 +398,15 @@ ts.plot(cbind(Trend, Trend * Seasonal), lty = 1:2)
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Autocorrelation</p>
+            <p class="prev-next-title">Decomposition</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="smoothing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Smoothing</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
         
