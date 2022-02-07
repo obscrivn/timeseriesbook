@@ -46,7 +46,7 @@ We can use Time Series components and apply traditional statistical methods to m
 > Input variable = feature
 
 - We do not have input and output features in time series. Instead, we must choose the variable to be predicted and use feature engineering to construct input variables.
-- Time series ususally has one column - date-time attribute
+- Time series usually has one column - date-time attribute
 
 **Types of Features**
    - Date Time Features                     

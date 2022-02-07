@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction to Tsibbles &#8212; D-590 Time Series Analysis</title>
+    <title>White Noise and Random Walk &#8212; D-590 Time Series Analysis</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -115,24 +115,10 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Graphics" href="plots.html" />
-    <link rel="prev" title="Basic Concepts" href="intro.html" />
+    <link rel="next" title="Forecasting Workflow" href="forecasting_tools.html" />
+    <link rel="prev" title="Forecasting Methods" href="week5.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -177,23 +163,23 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="week1.html">
    Introduction
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="intro.html">
      Basic Concepts
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="tsibbles.html">
      Introduction to Tsibbles
     </a>
    </li>
@@ -243,18 +229,18 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="week5.html">
    Forecasting Methods
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="random_walk.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      White Noise and Random Walk
     </a>
    </li>
@@ -306,7 +292,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/tsibbles.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/random_walk.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -326,7 +312,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftsibbles.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frandom_walk.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -353,24 +339,26 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#about">
-   About
+  <a class="reference internal nav-link" href="#why-white-noise-is-important">
+   Why White noise is Important?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tsibble-objects">
-   Tsibble Objects
+  <a class="reference internal nav-link" href="#why-random-walk-is-important">
+   Why Random Walk is Important?
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tsibble-index">
-   Tsibble Index
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-tsibble">
-   Working with tsibble
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#differencing">
+     Differencing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adf-test">
+     ADF Test
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -383,159 +371,129 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-tsibbles">
-<h1>Introduction to Tsibbles<a class="headerlink" href="#introduction-to-tsibbles" title="Permalink to this headline">¶</a></h1>
-<p><small> Source: Tidy Time Series. Rob Hyndman. Rstudio 2020 </small></p>
-<div class="section" id="about">
-<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="white-noise-and-random-walk">
+<h1>White Noise and Random Walk<a class="headerlink" href="#white-noise-and-random-walk" title="Permalink to this headline">¶</a></h1>
+<p><small>Introduction to Time Series Forecasting with Python. Jason Brownlee.</small></p>
+<p><small>Forecasting: Principle and practice. Chapter 5. Rob Hyndman and George Athanasopoulos. </small></p>
+<div class="section" id="why-white-noise-is-important">
+<h2>Why White noise is Important?<a class="headerlink" href="#why-white-noise-is-important" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>The tsibble package extends the tidyverse to temporal data. Built on top of the tibble, a tsibble (or tbl_ts) is a data- and model-oriented object. The tsibble package aims at managing temporal data and getting analysis done in a fluent workflow.</p>
+<div><p>A time series is white noise if the variables are independent
+and identically distributed (iid) with a mean of zero. This means that all variables have the same variance (sigma2) and each value has a zero correlation with all other values in the series.</p>
 </div></blockquote>
-<p>This practice is available on Canvas in RMD format. Make sure you are able to run it and understand the structure of Rmarkdown. For all subsequent practice activities you need to creaate a new rmarkdown file, add content from the practice and knit (run).</p>
-<p><strong>Tsibble Content</strong></p>
+<p>White noise is important for two main reasons:</p>
 <ul class="simple">
-<li><p>library(tidyverse) # Data manipulation and plotting functions</p></li>
-<li><p>library(tsibble) # Time series manipulation</p></li>
-<li><p>library(fable) # Forecasting functions</p></li>
-<li><p>library(feasts) # Time series graphics and statistics</p></li>
-<li><p>library(tsibbledata) # Tidy time series data</p></li>
-<li><p>library(fpp3) # All of the above and more</p></li>
+<li><p><strong>Predictability</strong>: If your time series is white noise, then, by definition, it is random. You cannot reasonably model it and make predictions.</p></li>
+<li><p><strong>Model Diagnostics</strong>: The series of errors from a time series forecast model should ideally be white noise. If the series of forecast errors are not white noise, it suggests improvements should be made to the predictive model.</p></li>
 </ul>
-<p> Install required packages: </p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="n">c</span><span class="p">(</span>
-<span class="s2">&quot;tidyverse&quot;</span><span class="p">,</span>
-<span class="s2">&quot;fpp3&quot;</span><span class="p">,</span>
-<span class="s2">&quot;GGally&quot;</span><span class="p">,</span>
-<span class="s2">&quot;sugrrants&quot;</span>
-<span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="n">tsibble</span><span class="p">(</span><span class="n">sample</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="n">wn</span> <span class="o">=</span> <span class="n">rnorm</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">index</span> <span class="o">=</span> <span class="n">sample</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">%&gt;%</span> <span class="n">autoplot</span><span class="p">(</span><span class="n">wn</span><span class="p">)</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;White noise&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tsibble-objects">
-<h2>Tsibble Objects<a class="headerlink" href="#tsibble-objects" title="Permalink to this headline">¶</a></h2>
-<p>Object contains:</p>
+<p><img alt="" src="_images/for3.png" /></p>
+<p>Your time series is not white noise if any of the following conditions are true:</p>
 <ul class="simple">
-<li><p>An index: time information about the observation</p></li>
-<li><p>Measured variable(s): numbers of interest</p></li>
-<li><p>Key variable(s): optional unique identifiers for each series</p></li>
+<li><p>Does your series have a non-zero mean?</p></li>
+<li><p>Does the variance change over time?</p></li>
+<li><p>Do values correlate with lag values?</p></li>
 </ul>
-<p>tsibble data <code class="docutils literal notranslate"><span class="pre">global_economy</span></code></p>
+<p>Some tools that you can use to check if your time series is white noise are:</p>
 <ul class="simple">
-<li><p>Economic indicators featured by the World Bank from 1960 to 2017</p></li>
+<li><p>Calculate summary statistics. Check the mean and variance of the whole series against the mean and variance of meaningful contiguous blocks of values in the series (e.g. days,months, or years).</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">global_economy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>summary(y$wn)
 </pre></div>
 </div>
-<p><img alt="" src="_images/w1object.png" /></p>
-<p>tsibble data <code class="docutils literal notranslate"><span class="pre">tourism</span></code></p>
+<p><img alt="" src="_images/for2.png" /></p>
 <ul class="simple">
-<li><p>A dataset containing the quarterly overnight trips from 1998 Q1 to 2016 Q4 across Australia</p></li>
+<li><p>Create an autocorrelation plot. We expect each autocorrelation to be close to zero. Note - they will not be exactly equal to zero as there is some random variation.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tourism</span>
+<p><img alt="" src="_images/for1.png" /></p>
+</div>
+<div class="section" id="why-random-walk-is-important">
+<h2>Why Random Walk is Important?<a class="headerlink" href="#why-random-walk-is-important" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>A random walk is different from a list of random numbers because the next value in the sequence is a modification of the previous value in the sequence - a dependence from one-time step to the next.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Unlike white noise, random walk has non-zero mean, non-constant std/variance</p></li>
+</ul>
+<p>Random walks typically have:</p>
+<ul class="simple">
+<li><p>long periods of apparent trends up or down</p></li>
+<li><p>sudden and unpredictable changes in direction</p></li>
+</ul>
+<p><img alt="" src="_images/for4.png" /></p>
+<p>The forecasts from a random walk model are equal to the last observation, as future movements are unpredictable:</p>
+<p><img alt="" src="_images/for5.png" /></p>
+<ol class="simple">
+<li><p>Start with a random number</p></li>
+<li><p>Randomly select another number and add it to the observation from the previous time step</p></li>
+<li><p>Repeat step 2 for as long as you like.</p></li>
+</ol>
+<p>We can simulate a random walk  model: It takes the number of period (N), initial value (x0), drift (mu). The function use rnorm() to generate random normal variable, and then use cumsum() to get the random walk.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RW</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">z</span><span class="o">&lt;-</span><span class="n">cumsum</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">))</span> <span class="c1"># we can also specify mean and sd for rnorm</span>
+  <span class="n">t</span><span class="o">&lt;-</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span>
+  <span class="n">x</span><span class="o">&lt;-</span><span class="n">x0</span><span class="o">+</span><span class="n">t</span><span class="o">*</span><span class="n">mu</span><span class="o">+</span><span class="n">z</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">rw_nodrift</span> <span class="o">&lt;-</span> <span class="n">tsibble</span><span class="p">(</span><span class="n">sample</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="n">wn</span> <span class="o">=</span> <span class="n">RW</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">index</span> <span class="o">=</span> <span class="n">sample</span><span class="p">)</span>
+<span class="n">rw_nodrift</span> <span class="o">%&gt;%</span> <span class="n">autoplot</span><span class="p">(</span><span class="n">wn</span><span class="p">)</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Random Walk without Drift&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="" src="_images/w1tourism.png" /></p>
-<!--<img src="_static/w1object.png" width="400">-->
-</div>
-<div class="section" id="tsibble-index">
-<h2>Tsibble Index<a class="headerlink" href="#tsibble-index" title="Permalink to this headline">¶</a></h2>
-<p><strong>Table 1. Common Time Index variables</strong></p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Frequency</p></th>
-<th class="text-align:center head"><p>Function</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:center"><p>Annual</p></td>
-<td class="text-align:center"><p>start:end</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>Quarterly</p></td>
-<td class="text-align:center"><p>yearquarter()</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>Monthly</p></td>
-<td class="text-align:center"><p>yearmonth()</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>Weekly</p></td>
-<td class="text-align:center"><p>yearweek()</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>Daily</p></td>
-<td class="text-align:center"><p>as_date(), ymd()</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>Sub-daily</p></td>
-<td class="text-align:center"><p>as_datetime()</p></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example 1: Create a table</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mydata</span> <span class="o">&lt;-</span> <span class="n">tsibble</span><span class="p">(</span>
-  <span class="n">year</span> <span class="o">=</span> <span class="mi">2012</span><span class="p">:</span><span class="mi">2016</span><span class="p">,</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">110</span><span class="p">),</span>
-  <span class="n">index</span> <span class="o">=</span> <span class="n">year</span>
-<span class="p">)</span>
-<span class="n">mydata</span>
+<p><strong>Random Walk with Drift</strong></p>
+<blockquote>
+<div><p>Drift is often denoted with μ, and in terms of values changing over time, drift means gradually changing into something. For example, stocks may fluctuate constantly, but they might also have a positive drift, i.e., gain an overall gradual increase over time.</p>
+</div></blockquote>
+<p><img alt="" src="_images/for6.png" /></p>
+<p><img alt="" src="_images/for7.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rw_drift</span> <span class="o">&lt;-</span> <span class="n">tsibble</span><span class="p">(</span><span class="n">sample</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="n">rw</span> <span class="o">=</span> <span class="n">RW</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">index</span> <span class="o">=</span> <span class="n">sample</span><span class="p">)</span> <span class="c1"># we added 0.5 to drift constant</span>
+<span class="n">rw_drift</span> <span class="o">%&gt;%</span> <span class="n">autoplot</span><span class="p">(</span><span class="n">rw</span><span class="p">)</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Random Walk with Drift&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure>
-  <img src="_static/w1example1.png" width="400">
-</figure>
+<p>Autocorrelation plot (correlogram) shows a strong autocorrelation with the previous observation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rw_drift</span> <span class="o">%&gt;%</span>
+<span class="n">ACF</span><span class="p">(</span><span class="n">rw</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="n">autoplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/for8.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If observations are more frequent than <strong>once per
-year</strong>, use <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">time</span> <span class="pre">class</span> <span class="pre">function</span></code> on the index (see Table 1).</p>
+<p>A stationary time series is one where the values are not a function of time. The observations in a random walk are dependent on time, so it is not stationary. In fact, all random walk
+processes are non-stationary. But not all non-stationary time series are random walks. (Brownlee, Ch.11)</p>
 </div>
-</div>
-<div class="section" id="working-with-tsibble">
-<h2>Working with tsibble<a class="headerlink" href="#working-with-tsibble" title="Permalink to this headline">¶</a></h2>
-<p>We will be using some common data manipulation methods from dplyr:</p>
-<ul class="simple">
-<li><p>mutate() adds new variables that are functions of existing variables</p></li>
-<li><p>select() picks variables based on their names</p></li>
-<li><p>filter() picks cases based on their values</p></li>
-<li><p>summarise() reduces multiple values down to a single summary.</p></li>
-<li><p>arrange() changes the ordering of the rows.</p></li>
-</ul>
-<p>For more information, see - <a class="reference external" href="https://dplyr.tidyverse.org/">https://dplyr.tidyverse.org/</a></p>
-<p><strong>Example 2: Convert CSV to tsibble</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prison</span> <span class="o">&lt;-</span> <span class="n">readr</span><span class="p">::</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;prison_population.csv&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<span class="n">mutate</span><span class="p">(</span><span class="n">Quarter</span> <span class="o">=</span> <span class="n">yearquarter</span><span class="p">(</span><span class="n">date</span><span class="p">))</span> <span class="o">%&gt;%</span>
-<span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">date</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<span class="n">as_tsibble</span><span class="p">(</span>
-<span class="n">index</span> <span class="o">=</span> <span class="n">Quarter</span><span class="p">,</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">gender</span><span class="p">,</span> <span class="n">legal</span><span class="p">,</span> <span class="n">indigenous</span><span class="p">)</span>
-<span class="p">)</span>
+<p>Some tools that you can use to check if your time series is a random walk: differencing and ADF</p>
+<div class="section" id="differencing">
+<h3>Differencing<a class="headerlink" href="#differencing" title="Permalink to this headline">¶</a></h3>
+<p><strong>Differencing</strong> - Computing the differences between consecutive observations
+- We can make the random walk stationary by taking the first difference: replacing each observation as the difference between the current and the previous value</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diff_drift</span> <span class="o">&lt;-</span> <span class="n">mutate</span><span class="p">(</span><span class="n">rw_drift</span><span class="p">,</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">difference</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span> <span class="n">order_by</span> <span class="o">=</span> <span class="n">sample</span><span class="p">))</span>
+<span class="n">diff_drift</span> <span class="o">%&gt;%</span> 
+<span class="n">autoplot</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><img alt="" src="_images/for9.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">as_tsibble</span><span class="p">(</span><span class="n">diff_drift</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="n">sample</span><span class="p">)</span> <span class="o">%&gt;%</span>
+<span class="n">ACF</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="n">autoplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/for10.png" />
+we can see no significant relationship between the lagged observations, as we would expect from the way the random walk was generated.</p>
+</div>
+<div class="section" id="adf-test">
+<h3>ADF Test<a class="headerlink" href="#adf-test" title="Permalink to this headline">¶</a></h3>
+<p><strong>Augmented Dickey-Fuller test</strong> is a common statistical test used to evaluate whether a given Time series is stationary or not.</p>
+<p>The null hypothesis  is that the time series is non-stationary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>library(tseries)
+adf.test(rw_drift$wn)
+</pre></div>
+</div>
+<p><img alt="" src="_images/for11.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>MUTATE -&gt; create a new column <em>Quarter</em> using Time Index <code class="docutils literal notranslate"><span class="pre">yearquarter()</span></code>. All dates with the format 01/03/2020 are converted to Q1 2020, Q2 2020 etc</p></li>
-<li><p>SELECT -&gt; select all columns except date</p></li>
-</ul>
+<p>A random walk cannot reasonably be predicted. We can expect that the best prediction would be to use the observation at the previous time step as what will happen in the next time step. Simply because we know that the next time step will be a function of the prior time step. This is often called the naive forecast, or a persistence model (we will talk about in the next section).</p>
 </div>
-<p><strong>Example 3: Filter columns</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PBS</span> <span class="o">%&gt;%</span>
-<span class="nb">filter</span><span class="p">(</span><span class="n">ATC2</span> <span class="o">==</span> <span class="s2">&quot;A10&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<span class="n">select</span><span class="p">(</span><span class="n">Month</span><span class="p">,</span> <span class="n">Concession</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Cost</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure>
-  <img src="_static/w1example4.png" width="400">
-</figure>
-<p><strong>Example 4: summarise cost</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PBS</span> <span class="o">%&gt;%</span>
-<span class="nb">filter</span><span class="p">(</span><span class="n">ATC2</span> <span class="o">==</span> <span class="s2">&quot;A10&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<span class="n">select</span><span class="p">(</span><span class="n">Month</span><span class="p">,</span> <span class="n">Concession</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Cost</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<span class="n">summarise</span><span class="p">(</span><span class="n">total_cost</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Cost</span><span class="p">))</span>
-</pre></div>
-</div>
-<p><strong>Example 5: mutate and create a new variable</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PBS</span> <span class="o">%&gt;%</span>
-<span class="nb">filter</span><span class="p">(</span><span class="n">ATC2</span> <span class="o">==</span> <span class="s2">&quot;A10&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<span class="n">select</span><span class="p">(</span><span class="n">Month</span><span class="p">,</span> <span class="n">Concession</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Cost</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<span class="n">summarise</span><span class="p">(</span><span class="n">total_cost</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Cost</span><span class="p">))</span> <span class="o">%&gt;%</span>
-<span class="n">mutate</span><span class="p">(</span><span class="n">total_cost</span> <span class="o">=</span> <span class="n">total_cost</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">a10</span>
-</pre></div>
 </div>
 </div>
 </div>
@@ -565,17 +523,17 @@ year</strong>, use <code class="docutils literal notranslate"><span class="pre">
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="week5.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Basic Concepts</p>
+            <p class="prev-next-title">Forecasting Methods</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="plots.html" title="next page">
+    <a class='right-next' id="next-link" href="forecasting_tools.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Graphics</p>
+        <p class="prev-next-title">Forecasting Workflow</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
