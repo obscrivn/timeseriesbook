@@ -301,18 +301,55 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#technical-setup">
-   Technical Setup
+  <a class="reference internal nav-link" href="#technical-setup-questions">
+   Technical Setup Questions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-treatement">
-   Data Treatement
+  <a class="reference internal nav-link" href="#data-treatement-questions">
+   Data Treatement Questions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analysis">
-   Analysis
+  <a class="reference internal nav-link" href="#analysis-questions">
+   Analysis Questions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modeling">
+   Modeling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-forecasting-models">
+   Simple Forecasting Models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#average-mean-method">
+     Average / Mean Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#naive-method">
+     Naive Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seasonal-naive-method">
+     Seasonal Naive Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#drift-method">
+     Drift Method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#residual-diagnostics">
+   Residual Diagnostics
   </a>
  </li>
 </ul>
@@ -345,16 +382,16 @@
 <small>Source: Arthur Mello. 2019.</small></p></li>
 </ul>
 </div>
-<div class="section" id="technical-setup">
-<h2>Technical Setup<a class="headerlink" href="#technical-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="technical-setup-questions">
+<h2>Technical Setup Questions<a class="headerlink" href="#technical-setup-questions" title="Permalink to this headline">¶</a></h2>
 <p>This is where you choose the tools and also workflow design.</p>
 <ul class="simple">
 <li><p>Some experts recommend to have one  notebook for each step: data treatment, analysis and modelling</p></li>
 <li><p>Document your data sources, how they are collected, stored and merged, and where your scripts will be</p></li>
 </ul>
 </div>
-<div class="section" id="data-treatement">
-<h2>Data Treatement<a class="headerlink" href="#data-treatement" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-treatement-questions">
+<h2>Data Treatement Questions<a class="headerlink" href="#data-treatement-questions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Data Collection:</p>
 <ul>
@@ -367,24 +404,203 @@
 <li><p>How to deal with outliers and missing values</p></li>
 </ul>
 </li>
-<li><p>Feature Engineering</p></li>
+<li><p>Feature Engineering</p>
+<ul>
+<li><p>What additional features would help you discover additional patterns (expert knowledge, apriori knowledge)?</p></li>
+</ul>
+</li>
 </ul>
 </div>
-<div class="section" id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="analysis-questions">
+<h2>Analysis Questions<a class="headerlink" href="#analysis-questions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Is there a trend?</p></li>
 <li><p>Is this time series stationary?</p></li>
 <li><p>Is there seasonality? At what levels (daily, weekly…)?</p></li>
 <li><p>If there are external variables, how do they interact with each other (especially with the variable you are trying to predict)?</p></li>
-<li><p>What is the appropriate error measure for evaluation?</p>
-<ul>
-<li><p>Root mean squared error: RMSE</p></li>
-<li><p>Mean absolute error: MAE</p></li>
-</ul>
-</li>
+<li><p>What is the appropriate error measure for evaluation?</p></li>
 </ul>
 <p><img alt="" src="_images/for3.png" /></p>
+</div>
+<div class="section" id="modeling">
+<h2>Modeling<a class="headerlink" href="#modeling" title="Permalink to this headline">¶</a></h2>
+<p><small><a class="reference external" href="https://cran.r-project.org/web/packages/fable/vignettes/fable.html">fable</a></small></p>
+<blockquote>
+<div><p>The R package fable provides a collection of commonly used univariate and multivariate time series forecasting models including exponential smoothing via state space models and automatic ARIMA modelling.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Model Function</strong>: The response variable (y) is specified on the left of the formula, and the model is written on the right.</p></li>
+</ul>
+<p><img alt="" src="_images/mod1.png" /></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">model()</span></code>s function is used to estimate these model specifications on a particular dataset, and will return a model table.</p></li>
+</ul>
+<p><img alt="" src="_images/mod2.png" /></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">coef()</span></code> function is used to extract the coefficients from the models. It is possible to use filter() and select() to focus on the coefficients from a particular model.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">%&gt;%</span> <span class="nb">filter</span><span class="p">(</span><span class="n">Country</span> <span class="o">==</span> <span class="s1">&#39;United States&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="n">coef</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/mod3.png" /></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">glance()</span></code>  provides a one-row summary of each model, and commonly includes descriptions of the model’s fit such as the residual variance and information criteria.</p></li>
+</ul>
+<p><img alt="" src="_images/mod4.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>information criteria (AIC, AICc, BIC) are only comparable between the same model class and only if those models share the same response (after transformations and differencing).</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">report()</span></code> provides a formatted model-specific display</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">%&gt;%</span> <span class="nb">filter</span><span class="p">(</span><span class="n">Country</span> <span class="o">==</span> <span class="s1">&#39;United States&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">report</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/mod5.png" /></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">accuracy()</span></code> provides common accuracy measures</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">%&gt;%</span> <span class="nb">filter</span><span class="p">(</span><span class="n">Country</span> <span class="o">==</span> <span class="s1">&#39;United States&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">accuracy</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/mod6.png" /></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">forecast()</span></code> is used when the appropriate model is built. We specify the number of future observations to forecast. For example, <code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">=</span> <span class="pre">10</span></code> forecasts for the next 10 observations; <code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">=</span> <span class="pre">&quot;2</span> <span class="pre">years&quot;</span></code> forecasts for two years into the future.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">%&gt;%</span> <span class="n">forecast</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="s2">&quot;3 years&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">augment()</span></code> function provides the original data with both fitted values and their residuals</p>
+<ul>
+<li><p>The fitted values and residuals can also be obtained using fitted() and residuals()</p></li>
+</ul>
+</li>
+<li><p>Residuals are useful in checking whether a model has adequately captured the information in the data</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">%&gt;%</span>
+  <span class="nb">filter</span><span class="p">(</span><span class="n">Country</span> <span class="o">==</span> <span class="s2">&quot;Sweden&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">augment</span><span class="p">(</span><span class="n">fit</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/mod13.png" /></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> - .fitted contains the fitted values;
+ - .resid contains the residuals;
+ - .innov contains the “innovation residuals”
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p><strong>Fitted Values</strong> = predicted values based on previous observations</p></li>
+<li><p><strong>Residuals</strong> = The residuals are equal to the difference between the observations and the corresponding fitted values</p></li>
+<li><p><strong>innovation residuals</strong> = residuals on the transformed scale</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hilo()</span></code> function extracts confidence intervals</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Forecasting with an ETS(M,Ad,A) model to Australian beer production</span>
+<span class="n">beer_fc</span> <span class="o">&lt;-</span> <span class="n">aus_production</span> <span class="o">%&gt;%</span>
+  <span class="n">model</span><span class="p">(</span><span class="n">ets</span> <span class="o">=</span> <span class="n">ETS</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">Beer</span><span class="p">)</span> <span class="o">~</span> <span class="n">error</span><span class="p">(</span><span class="s2">&quot;M&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">trend</span><span class="p">(</span><span class="s2">&quot;Ad&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">season</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)))</span> <span class="o">%&gt;%</span> 
+  <span class="n">forecast</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="s2">&quot;3 years&quot;</span><span class="p">)</span>
+<span class="c1"># Compute 80% and 95% forecast intervals</span>
+<span class="n">beer_fc</span> <span class="o">%&gt;%</span> 
+  <span class="n">hilo</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">95</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="n">select</span><span class="p">(</span><span class="s1">&#39;80%&#39;</span><span class="p">,</span> <span class="s1">&#39;95%&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="k">as</span><span class="o">.</span><span class="n">character</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/mod14.png" /></p>
+</div>
+<div class="section" id="simple-forecasting-models">
+<h2>Simple Forecasting Models<a class="headerlink" href="#simple-forecasting-models" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>These methods will serve as benchmarks rather than the method of choice</p></li>
+</ul>
+<div class="section" id="average-mean-method">
+<h3>Average / Mean Method<a class="headerlink" href="#average-mean-method" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Mean Model - the forecasts or the future predictions are equal to the average or mean of the historical data available</p>
+</div></blockquote>
+<p><img alt="" src="_images/mod7.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># here we are using only a section from data</span>
+<span class="n">bricks</span> <span class="o">&lt;-</span> <span class="n">aus_production</span> <span class="o">%&gt;%</span>
+  <span class="n">filter_index</span><span class="p">(</span><span class="s2">&quot;1970 Q1&quot;</span> <span class="o">~</span> <span class="s2">&quot;2004 Q4&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">select</span><span class="p">(</span><span class="n">Bricks</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MEAN()</span></code> function can be combined with <code class="docutils literal notranslate"><span class="pre">forecast()</span></code> where we can specify the forecasting period</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">&lt;-</span> <span class="n">bricks</span> <span class="o">%&gt;%</span>
+  <span class="n">model</span><span class="p">(</span><span class="n">mean_model</span> <span class="o">=</span> <span class="n">MEAN</span><span class="p">(</span><span class="n">Bricks</span><span class="p">))</span>
+
+<span class="n">fit</span> <span class="o">%&gt;%</span> <span class="n">forecast</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="s1">&#39;2 year&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">autoplot</span><span class="p">(</span><span class="n">bricks</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/mod8.png" /></p>
+</div>
+<div class="section" id="naive-method">
+<h3>Naive Method<a class="headerlink" href="#naive-method" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>With Naive method, we set all the forecasts to the latest observation values. This method can be applied to many time series including most stock price data, and even if it is not a good forecasting method, it provides a useful benchmark for other forecasting methods.</p>
+</div></blockquote>
+<p><img alt="" src="_images/mod9.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">&lt;-</span> <span class="n">bricks</span> <span class="o">%&gt;%</span> <span class="n">model</span><span class="p">(</span><span class="n">NAIVE</span><span class="p">(</span><span class="n">Bricks</span><span class="p">))</span>
+
+<span class="n">fit</span> <span class="o">%&gt;%</span> <span class="n">forecast</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="s1">&#39;2 year&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">autoplot</span><span class="p">(</span><span class="n">bricks</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/mod10.png" /></p>
+<blockquote>
+<div><p>A naïve forecast is optimal when data follow a <strong>random walk</strong>, this method is also called random walk forecasts and the RW() function can be used instead of NAIVE()</p>
+</div></blockquote>
+</div>
+<div class="section" id="seasonal-naive-method">
+<h3>Seasonal Naive Method<a class="headerlink" href="#seasonal-naive-method" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>A similar NAIVE method is useful for highly seasonal data. In this case, we set each forecast to be equal to the last observed value from the same season: for example, the forecast for January month values will be equal to the last observed January values [Ch.5]</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lag()</span></code> function is optional: we have a quartely data bricks and we specify a one-year lag</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">&lt;-</span> <span class="n">bricks</span> <span class="o">%&gt;%</span> <span class="n">model</span><span class="p">(</span><span class="n">SNAIVE</span><span class="p">(</span><span class="n">Bricks</span> <span class="o">~</span> <span class="n">lag</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)))</span>
+<span class="n">fit</span> <span class="o">%&gt;%</span> <span class="n">forecast</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="s1">&#39;2 year&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">autoplot</span><span class="p">(</span><span class="n">bricks</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/mod11.png" /></p>
+</div>
+<div class="section" id="drift-method">
+<h3>Drift Method<a class="headerlink" href="#drift-method" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>A naive method where the forecasts are allowed to increase or decrease over time. The amount of change over time (called the drift) is set to be the average change in the historical data.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>As mentioned in Ch.5: “This is equivalent to drawing a line between the first and last observations, and extrapolating it into the future.”</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">&lt;-</span> <span class="n">bricks</span> <span class="o">%&gt;%</span> <span class="n">model</span><span class="p">(</span><span class="n">RW</span><span class="p">(</span><span class="n">Bricks</span> <span class="o">~</span> <span class="n">drift</span><span class="p">()))</span>
+<span class="n">fit</span> <span class="o">%&gt;%</span> <span class="n">forecast</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="s1">&#39;5 year&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">autoplot</span><span class="p">(</span><span class="n">bricks</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/mod12.png" /></p>
+</div>
+</div>
+<div class="section" id="residual-diagnostics">
+<h2>Residual Diagnostics<a class="headerlink" href="#residual-diagnostics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The innovation residuals are uncorrelated.</p></li>
+<li><p>The innovation residuals have zero mean. [If they have a mean other than zero, then the forecasts are biased.]</p></li>
+<li><p>The innovation residuals have constant variance. This is known as “homoscedasticity”.</p></li>
+<li><p>The innovation residuals are normally distributed.</p></li>
+</ul>
 </div>
 </div>
 

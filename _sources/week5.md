@@ -7,7 +7,7 @@
 ## Forecasting Tools
 
 
-- [Importance of White Noise and Randowm Walk](forecasting_tools.md)
+- [Forecating Workflow](forecasting_tools.md)
 
 
 
