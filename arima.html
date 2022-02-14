@@ -311,6 +311,16 @@
        Differencing
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unit-test">
+       Unit Test
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#seasonal-strength">
+       Seasonal Strength
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -409,7 +419,8 @@ distribution of (y_t, … , y_(t+s)) does not depend on t.</p>
 <div class="section" id="differencing">
 <h4>Differencing<a class="headerlink" href="#differencing" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>Transformations such as logarithms can help to stabilise the variance of a time series. - Differencing can help stabilise the mean of a time series by removing changes in the level of a time series, and eliminating (or reducing) trend and seasonality.</p></li>
+<li><p>Transformations such as logarithms can help to stabilise the variance of a time series - Differencing can help stabilise the mean of a time series by removing changes in the level of a time series, and eliminating (or reducing) trend and seasonality</p></li>
+<li><p>Unit test to determine if differencing needed</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">google_2015</span> <span class="o">%&gt;%</span>
 <span class="n">autoplot</span><span class="p">(</span><span class="n">difference</span><span class="p">(</span><span class="n">Close</span><span class="p">))</span> <span class="o">+</span>
@@ -466,6 +477,29 @@ distribution of (y_t, … , y_(t+s)) does not depend on t.</p>
 </pre></div>
 </div>
 <p><img alt="" src="_images/ar6.png" /></p>
+</div>
+<div class="section" id="unit-test">
+<h4>Unit Test<a class="headerlink" href="#unit-test" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Augmented Dickey Fuller test: null hypothesis is that the data are non-stationary and non-seasonal</p></li>
+<li><p>Kwiatkowski-Phillips-Schmidt-Shin (KPSS) test: null hypothesis is that the data are stationary and non-seasonal</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">google_2015</span> <span class="o">%&gt;%</span>
+  <span class="n">features</span><span class="p">(</span><span class="n">Close</span><span class="p">,</span> <span class="n">unitroot_kpss</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The p-value is less than 0.01, indicating that the null hypothesis is rejected and the data are not stationary.
+<img alt="" src="_images/ar7.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">google_2015</span> <span class="o">%&gt;%</span>
+  <span class="n">mutate</span><span class="p">(</span><span class="n">diff_close</span> <span class="o">=</span> <span class="n">difference</span><span class="p">(</span><span class="n">Close</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="n">features</span><span class="p">(</span><span class="n">diff_close</span><span class="p">,</span> <span class="n">unitroot_kpss</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The p-value is greater than 0.1, indicating that we fail to reject the null hypothesis  and the data is stationary.
+<img alt="" src="_images/ar8.png" /></p>
+</div>
+<div class="section" id="seasonal-strength">
+<h4>Seasonal Strength<a class="headerlink" href="#seasonal-strength" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
 </div>

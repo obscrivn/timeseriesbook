@@ -72,7 +72,8 @@ Note - a slow decrease in ACF:
 ![](_static/ar1.png)
 
 ##### Differencing
-- Transformations such as logarithms can help to stabilise the variance of a time series. - Differencing can help stabilise the mean of a time series by removing changes in the level of a time series, and eliminating (or reducing) trend and seasonality.
+- Transformations such as logarithms can help to stabilise the variance of a time series - Differencing can help stabilise the mean of a time series by removing changes in the level of a time series, and eliminating (or reducing) trend and seasonality
+- Unit test to determine if differencing needed
 
 ```
 google_2015 %>%
@@ -130,3 +131,27 @@ log(Cost) %>% difference(12) %>% difference(1)
 )
 ```
 ![](_static/ar6.png)
+
+##### Unit Test
+
+- Augmented Dickey Fuller test: null hypothesis is that the data are non-stationary and non-seasonal
+- Kwiatkowski-Phillips-Schmidt-Shin (KPSS) test: null hypothesis is that the data are stationary and non-seasonal
+
+
+
+
+```
+google_2015 %>%
+  features(Close, unitroot_kpss)
+```
+The p-value is less than 0.01, indicating that the null hypothesis is rejected and the data are not stationary.
+![](_static/ar7.png)
+```
+google_2015 %>%
+  mutate(diff_close = difference(Close)) %>%
+  features(diff_close, unitroot_kpss)
+```
+The p-value is greater than 0.1, indicating that we fail to reject the null hypothesis  and the data is stationary.
+![](_static/ar8.png)
+
+##### Seasonal Strength
