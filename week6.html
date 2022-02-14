@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to D-590 Time Series Spring 22 &#8212; D-590 Time Series Analysis</title>
+    <title>ARIMA Models &#8212; D-590 Time Series Analysis</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -171,16 +171,10 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="week1.html" />
+    <link rel="next" title="ARIMA Models" href="arima.html" />
+    <link rel="prev" title="Forecasting Workflow" href="forecasting_tools.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -218,13 +212,13 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="welcome.html">
    Welcome to D-590 Time Series Spring 22
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="week1.html">
    Introduction
@@ -313,11 +307,11 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="week6.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    ARIMA Models
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
@@ -371,7 +365,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/welcome.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/week6.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -391,7 +385,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fwelcome.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fweek6.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -418,23 +412,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#course-description">
-   Course Description
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#course-prerequisites">
-   Course Prerequisites:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#course-policy">
-   Course Policy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#office-hours-and-review-sessions">
-   Office Hours and Review Sessions
+  <a class="reference internal nav-link" href="#arima">
+   ARIMA
   </a>
  </li>
 </ul>
@@ -448,39 +427,12 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="welcome-to-d-590-time-series-spring-22">
-<h1>Welcome to D-590 Time Series Spring 22<a class="headerlink" href="#welcome-to-d-590-time-series-spring-22" title="Permalink to this headline">¶</a></h1>
-<p><img alt="" src="_images/quote.png" /></p>
-<p>This course provides practical skills to perform Time Series Analysis and Forecasting.</p>
-<div class="section" id="course-description">
-<h2>Course Description<a class="headerlink" href="#course-description" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="arima-models">
+<h1>ARIMA Models<a class="headerlink" href="#arima-models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="arima">
+<h2>ARIMA<a class="headerlink" href="#arima" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Introduction to Times Series with practical applications</p></li>
-<li><p>Working with Time Series Data</p></li>
-<li><p>Exploratory analysis and visualization</p></li>
-<li><p>Forecasting models</p></li>
-<li><p>Deep learning models</p></li>
-<li><p>Development of Time Series web application with Shiny</p></li>
-</ul>
-</div>
-<div class="section" id="course-prerequisites">
-<h2>Course Prerequisites:<a class="headerlink" href="#course-prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>Python and R programming, Statistics, some Machine Learning and Deep Learning experience recommended</p>
-</div>
-<div class="section" id="course-policy">
-<h2>Course Policy<a class="headerlink" href="#course-policy" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Students are responsible for completing and submitting on time all assigned tasks</p></li>
-<li><p>No late assignment</p></li>
-<li><p>Course-related questions are posted via Piazza (do not use Canvas In-Box)</p></li>
-<li><p>For more details, see Course Policy on Canvas</p></li>
-</ul>
-</div>
-<div class="section" id="office-hours-and-review-sessions">
-<h2>Office Hours and Review Sessions<a class="headerlink" href="#office-hours-and-review-sessions" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Review sessions are held on Saturdays 6pm EST</p></li>
-<li><p>Office hours are held via Discord (per students’ request). Hours will be posted.</p></li>
+<li><p><a class="reference internal" href="arima.html"><span class="doc std std-doc">Introduction to ARIMA</span></a></p></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -511,11 +463,18 @@
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="week1.html" title="next page">
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="forecasting_tools.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Forecasting Workflow</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="arima.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction</p>
+        <p class="prev-next-title">ARIMA Models</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
