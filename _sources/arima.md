@@ -154,4 +154,3 @@ google_2015 %>%
 The p-value is greater than 0.1, indicating that we fail to reject the null hypothesis  and the data is stationary.
 ![](_static/ar8.png)
 
-##### Seasonal Strength

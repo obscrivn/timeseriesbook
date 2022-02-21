@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Feature Engineering &#8212; D-590 Time Series Analysis</title>
+    <title>Regression Models &#8212; D-590 Time Series Analysis</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -129,52 +129,10 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Features" href="features.html" />
-    <link rel="prev" title="Smoothing" href="smoothing.html" />
+    <link rel="next" title="Introduction to Time series in Python" href="ts_python.html" />
+    <link rel="prev" title="Regression Models" href="week7.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -268,11 +226,11 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="week4.html">
    Feature Engineering
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
@@ -324,18 +282,18 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="week7.html">
    Regression Models
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="regression.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Regression Models
     </a>
    </li>
@@ -387,7 +345,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/week4.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/regression.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -407,7 +365,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fweek4.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fregression.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -434,8 +392,23 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#features">
-   Features
+  <a class="reference internal nav-link" href="#purpose">
+   Purpose
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-transformation-with-pivot">
+   Data Transformation with pivot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-linear-regression">
+   Simple Linear Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-linear-regression">
+   Multiple Linear Regression
   </a>
  </li>
 </ul>
@@ -449,15 +422,121 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="feature-engineering">
-<h1>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="regression-models">
+<h1>Regression Models<a class="headerlink" href="#regression-models" title="Permalink to this headline">¶</a></h1>
+<p><small>Introduction to Time Series Forecasting with Python. Jason Brownlee.</small></p>
+<p><small>Forecasting: Principle and practice. Chapter 7. Rob Hyndman and George Athanasopoulos. </small></p>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Trends in time series can be classified as stochastic or deterministic.</p>
+</div></blockquote>
+<p><strong>Stochastic</strong>:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="features.html"><span class="doc std std-doc">Feature Engineering</span></a></p></li>
+<li><p>Data shows inexplicable changes in direction (attributed with random errors)</p></li>
+<li><p>Trends of this type (common in financial series) can be simulated  using random walk or autoregressive process</p></li>
+</ul>
+<p><strong>Deterministic</strong>:</p>
+<ul class="simple">
+<li><p>Data shows some plausible physical explanation for a trend (increasing population, seasonal frequency)</p></li>
+<li><p>Deterministic trends and seasonal variation can be modelled using regression</p></li>
+</ul>
+<p><strong>Extrapolation</strong></p>
+<ul class="simple">
+<li><p>We extrapolate (extend) deterministic trends when we make forecasts</p></li>
+<li><p>Short-term extrapolation justification: underlying trends will usually change slowly</p></li>
+<li><p>Short-term extrapolation should be based on a line (fitted to the more recent data only)</p></li>
 </ul>
 </div>
-<div class="toctree-wrapper compound">
+<div class="section" id="data-transformation-with-pivot">
+<h2>Data Transformation with pivot<a class="headerlink" href="#data-transformation-with-pivot" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">pivot_longer()</span></code> “lengthens” data, increasing the number of rows and decreasing the number of columns.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>commonly used to tidy datasets as they often optimise for ease of data entry or ease of comparison rather than ease of analysis.</p></li>
+</ul>
+<p><img alt="" src="_images/reg2.png" /></p>
+<p><img alt="" src="_images/reg4.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pivot_longer</span><span class="p">(</span><span class="n">us_change</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="n">Consumption</span><span class="p">,</span> <span class="n">Income</span><span class="p">),</span> <span class="n">names_to</span><span class="o">=</span><span class="s2">&quot;Series&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The first argument is the dataset to reshape. But with %&gt;% pipe that passes data we do not need to specify data set as the first argument</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">us_change</span> <span class="o">%&gt;%</span>
+  <span class="n">pivot_longer</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">Consumption</span><span class="p">,</span> <span class="n">Income</span><span class="p">),</span> <span class="n">names_to</span><span class="o">=</span><span class="s2">&quot;Series&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The second argument describes which columns need to be reshaped. In this case, it is <code class="docutils literal notranslate"><span class="pre">Consumption</span></code> and <code class="docutils literal notranslate"><span class="pre">Income</span></code></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">names_to</span></code> gives the name of the variable that will be created from the data stored in the column names</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">values_to</span></code> gives the name of the variable that will be created from the data stored in the cell value, i.e. count. Default is <code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+</ul>
+<p><img alt="" src="_images/reg3.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">us_change</span> <span class="o">%&gt;%</span>
+  <span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">Consumption</span><span class="p">,</span> <span class="o">-</span><span class="n">Income</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">pivot_longer</span><span class="p">(</span><span class="o">-</span><span class="n">Quarter</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Instead of typing what columns to include, we can use <code class="docutils literal notranslate"><span class="pre">-</span></code> (minus) to drop columns</p></li>
+<li><p>If we do not specify <code class="docutils literal notranslate"><span class="pre">names_to</span></code> and <code class="docutils literal notranslate"><span class="pre">values_to</span></code>, default is <strong>name</strong> and <strong>value</strong></p></li>
+</ul>
+<p><img alt="" src="_images/reg8.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you use <code class="docutils literal notranslate"><span class="pre">facet_grid()</span></code>, you can specify the layoout with the following syntaxt: vertical ~ horizontal. For example, facet_grid(name ~ .) means split variables (factors’ names) in the vertical direction, with the rest (.) in the horizontal direction.</p>
+</div>
+<p>Example from the chapter:</p>
+<p><small>See <a class="reference external" href="https://tidyr.tidyverse.org/articles/pivot.html">https://tidyr.tidyverse.org/articles/pivot.html</a></small></p>
+</div>
+<div class="section" id="simple-linear-regression">
+<h2>Simple Linear Regression<a class="headerlink" href="#simple-linear-regression" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>the simple linear regression model: a linear relationship between the forecast variable  y and a single predictor variable x</p>
+</div></blockquote>
+<p><img alt="" src="_images/reg1.png" /></p>
+<ul class="simple">
+<li><p>Use a scatter plot to determine the type of relation: positive linear relationship between consumption changes against income changes</p></li>
+</ul>
+<p><img alt="" src="_images/reg5.png" /></p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">tslm()</span></code> is a wrapper for lm() except that it allows variables “trend” and “season” which are created on the fly from the time series characteristics of the data. The variable “trend” is a simple time trend and “season” is a factor indicating the season</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tslm</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">biasadj</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="n">us_change</span> <span class="o">%&gt;%</span>
+  <span class="n">model</span><span class="p">(</span><span class="n">TSLM</span><span class="p">(</span><span class="n">Consumption</span> <span class="o">~</span> <span class="n">Income</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="n">report</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/reg7.png" /></p>
+</div>
+<div class="section" id="multiple-linear-regression">
+<h2>Multiple Linear Regression<a class="headerlink" href="#multiple-linear-regression" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>We have two or more predictors x and  y to be forecast. Each of the predictor variables must be numerical.</p>
+</div></blockquote>
+<p>Scatterplot matrix with ggpairs():</p>
+<ul class="simple">
+<li><p>Scatterplots of each pair of numeric variable are on the left</p></li>
+<li><p>Pearson correlation is displayed on the right (relations’ strength)</p></li>
+<li><p>Variable distribution is available on the diagonal</p></li>
+<li><p>The first column shows the relationships between the forecast variable and each of the predictors</p></li>
+<li><p>The remaining columns - the relationships between predictors</p></li>
+</ul>
+<p><img alt="" src="_images/reg7.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">GGally</span><span class="p">)</span>
+<span class="n">us_change</span> <span class="o">%&gt;%</span>
+  <span class="n">ggpairs</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/reg7.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">us_change</span> <span class="o">%&gt;%</span>
+  <span class="n">model</span><span class="p">(</span><span class="n">tslm</span> <span class="o">=</span> <span class="n">TSLM</span><span class="p">(</span><span class="n">Consumption</span> <span class="o">~</span> <span class="n">Income</span> <span class="o">+</span> <span class="n">Production</span> <span class="o">+</span> <span class="n">Unemployment</span> <span class="o">+</span> <span class="n">Savings</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -486,17 +565,17 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="smoothing.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="week7.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Smoothing</p>
+            <p class="prev-next-title">Regression Models</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="features.html" title="next page">
+    <a class='right-next' id="next-link" href="ts_python.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Features</p>
+        <p class="prev-next-title">Introduction to Time series in Python</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
