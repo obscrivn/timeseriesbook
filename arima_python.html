@@ -525,7 +525,7 @@ Freq: M, Name: Sales, dtype: float64
 Dep. Variable:                  Sales   No. Observations:                   36
 Model:                 ARIMA(5, 1, 0)   Log Likelihood                -198.485
 Date:                Sun, 06 Mar 2022   AIC                            408.969
-Time:                        14:17:39   BIC                            418.301
+Time:                        15:27:24   BIC                            418.301
 Sample:                    01-31-1981   HQIC                           412.191
                          - 12-31-1983                                         
 Covariance Type:                  opg                                         
@@ -630,23 +630,25 @@ differencing and the AR model. A crude way to perform this rolling forecast is t
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=343.272180, expected=342.300000
 predicted=293.329674, expected=339.700000
 predicted=368.668956, expected=440.400000
-predicted=335.044741, expected=315.900000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=335.044741, expected=315.900000
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=363.220221, expected=439.300000
+predicted=357.645324, expected=401.300000
+predicted=443.047835, expected=437.400000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=357.645324, expected=401.300000
-predicted=443.047835, expected=437.400000
-predicted=378.365673, expected=575.500000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=378.365673, expected=575.500000
 predicted=459.415021, expected=407.600000
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=526.890876, expected=682.000000
+predicted=457.231275, expected=475.300000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=457.231275, expected=475.300000
-predicted=672.914944, expected=581.300000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=672.914944, expected=581.300000
 predicted=531.541449, expected=646.900000
 </pre></div>
 </div>
@@ -828,9 +830,7 @@ ARIMA(1, 2, 0) RMSE=134.576
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   &quot;Check mle_retvals&quot;, ConvergenceWarning)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   &quot;Check mle_retvals&quot;, ConvergenceWarning)
 </pre></div>
 </div>
@@ -992,6 +992,12 @@ ARIMA(1, 2, 0) RMSE=134.576
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   &quot;Check mle_retvals&quot;, ConvergenceWarning)
+/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  &quot;Check mle_retvals&quot;, ConvergenceWarning)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  &quot;Check mle_retvals&quot;, ConvergenceWarning)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
@@ -1005,12 +1011,6 @@ ARIMA(1, 2, 0) RMSE=134.576
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
-  &quot;Check mle_retvals&quot;, ConvergenceWarning)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
-  &quot;Check mle_retvals&quot;, ConvergenceWarning)
-/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   &quot;Check mle_retvals&quot;, ConvergenceWarning)
 </pre></div>
 </div>
@@ -1019,6 +1019,18 @@ ARIMA(1, 2, 0) RMSE=134.576
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ARIMA(6, 0, 1) RMSE=85.175
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  &quot;Check mle_retvals&quot;, ConvergenceWarning)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  &quot;Check mle_retvals&quot;, ConvergenceWarning)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  &quot;Check mle_retvals&quot;, ConvergenceWarning)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/olgascrivner/anaconda3/lib/python3.7/site-packages/statsmodels/base/model.py:568: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
