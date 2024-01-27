@@ -1,4 +1,4 @@
-# Welcome to D-590 Time Series Spring 22
+# Welcome to D-590 Time Series Spring 24
 
 ![](_static/quote.png)
 
@@ -20,12 +20,6 @@ Python and R programming, Statistics, some Machine Learning and Deep Learning ex
 
 - Students are responsible for completing and submitting on time all assigned tasks
 - No late assignment
-- Course-related questions are posted via Piazza (do not use Canvas In-Box)
+- Course-related questions are posted via Piazza
 - For more details, see Course Policy on Canvas
-
-## Office Hours and Review Sessions
-
-- Review sessions are held on Saturdays 6pm EST
-- Office hours are held via Discord (per students' request). Hours will be posted.
-
 

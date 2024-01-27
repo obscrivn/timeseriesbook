@@ -38,7 +38,7 @@ We can use Time Series components and apply traditional statistical methods to m
       - Previous time steps are input variables and the next time step is the output variable
 
   - The order between the observations is preserved
-  - There is no previous value to predict the  first value in the sequence (it will be deleted). And no next value to predic the last one.
+  - There is no previous value to predict the  first value in the sequence (it will be deleted). And no next value to predict the last one.
   
   
 ### Features
@@ -72,9 +72,9 @@ Many parts of the world use daylight savings time (DST), so that some days have 
 
 **Time Spans**
 
-- durations: an exact number of seconds.
-- periods: human units like weeks and months.
-- intervals: a starting and ending point.
+- durations: an exact number of seconds
+- periods: human units like weeks and months
+- intervals: a starting and ending point
 
 > How do you pick between duration, periods, and intervals? As always, pick the simplest data structure that solves your problem. If you only care about physical time, use a duration; if you need to add human times, use a period; if you need to figure out how long a span is in human units, use an interval.
 
@@ -84,7 +84,7 @@ Many parts of the world use daylight savings time (DST), so that some days have 
 
 #### Lag Features
 
-> The lag features are  the target (output) variable but shifted with a period of time (a day before, a week or a month etc)
+> The lag features are the target (output) variable but shifted with a period of time (a day before, a week or a month etc)
 
 ![](_static/feat4.png)
 
@@ -113,7 +113,7 @@ A common short summary of a data set is to compute five summary statistics: the 
 **Strength of trends and seasonality**
      
      
-- For strongly trended data, the seasonally adjusted data should have much more variation than the remainder component.
+- For strongly trended data, the seasonally adjusted data should have much more variation than the remainder component
 - For data with little or no trend: strength ~ 0
 - Seasonality is defined for detrended data and the remainder component
 - Data with no seasonality: strength ~ 0
